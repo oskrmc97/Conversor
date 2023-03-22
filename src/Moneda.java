@@ -60,6 +60,8 @@ public class Moneda {
                 double wsctopesoRedondeado = Math.round(wsctopeso * 100.0) / 100.0;
                 conversionExitosa = "Usted tiene " + wsctopesoRedondeado + " Pesos";
                 break;
+            default:
+                return "FALLO AL CONVERTIR";
         }
         return conversionExitosa;
     }
