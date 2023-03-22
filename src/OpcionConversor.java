@@ -19,7 +19,7 @@ public class OpcionConversor {
 
     public int opcionMoneda(String moneda) {
         int opcionelegida = 1;
-        for (int i = 0; i < this.opcion.length; i++) {
+        for (int i = 0; i < this.monedas.length; i++) {
             if (this.monedas[i] == moneda) {
                 break;
             }
