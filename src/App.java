@@ -24,12 +24,12 @@ public class App {
         double valor = Double.parseDouble(valorString);
         switch (opcionConversor.opcionelegida(opcion)) {
             case 1:
-
                 String monedaElegida = (String) JOptionPane.showInputDialog(null, "Elige la moneda a la cual convertir",
                         "Elegir moneda", 1, null, opcionesMonedas, opcionesMonedas[0]);
-                Moneda moneda = new Moneda(valor, opcionConversor.opcionMoneda(monedaElegida));
-            case 2:
-                Distancia distancia = new Distancia(valor);
+                Moneda moneda = new Moneda(valor);
+                int opcionMonedaElegida = opcionConversor.opcionMoneda(monedaElegida);
+                JOptionPane.showInternalMessageDialog(null, moneda.convertirMoneda(opcionMonedaElegida));
+                break;
         }
 
     }
