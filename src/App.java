@@ -16,7 +16,12 @@ public class App {
         }
         String opcion = (String) JOptionPane.showInputDialog(null, "Selecciona un conversor", "Elegir", 1, null,
                 opcionesConvertidor, opcionesConvertidor[0]);
-        double valor = Double.parseDouble(JOptionPane.showInputDialog("Ingrese valor a convertir"));
+        String valorString = JOptionPane.showInputDialog("Ingrese valor a convertir");
+        while (valorString.equals("")) {
+            JOptionPane.showMessageDialog(null, "Ingrese un valor valido");
+            valorString = JOptionPane.showInputDialog("Ingrese valor a convertir");
+        }
+        double valor = Double.parseDouble(valorString);
         switch (opcionConversor.opcionelegida(opcion)) {
             case 1:
 
