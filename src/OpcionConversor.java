@@ -7,33 +7,21 @@ public class OpcionConversor {
     protected String[] unidadestiempo = { "Dias a horas", "Dias a minutos", "Dias a segundos" };
 
     public int opcionelegida(String opcion) {
-        int opcionelegida = 1;
-        for (int i = 0; i < this.opcion.length; i++) {
-            if (this.opcion[i] == opcion) {
-                break;
-            }
-            opcionelegida++;
-
-        }
-        return opcionelegida;
+        return comparacion(opcion, this.opcion);
     }
 
     public int opcionMoneda(String moneda) {
-        int opcionelegida = 1;
-        for (int i = 0; i < this.monedas.length; i++) {
-            if (this.monedas[i] == moneda) {
-                break;
-            }
-            opcionelegida++;
-
-        }
-        return opcionelegida;
+        return comparacion(moneda, this.monedas);
     }
 
     public int opcionTiempo(String unidadestiempo) {
+        return comparacion(unidadestiempo, this.unidadestiempo);
+    }
+
+    private int comparacion(String opcionGeneral, String[] ArrayDeOpciones) {
         int opcionelegida = 1;
-        for (int i = 0; i < this.unidadestiempo.length; i++) {
-            if (this.unidadestiempo[i] == unidadestiempo) {
+        for (int i = 0; i < ArrayDeOpciones.length; i++) {
+            if (ArrayDeOpciones[i] == opcionGeneral) {
                 break;
             }
             opcionelegida++;
