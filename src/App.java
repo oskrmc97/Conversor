@@ -2,20 +2,18 @@
 import javax.swing.JOptionPane;
 
 public class App {
+
     public static void main(String[] args) throws Exception {
         boolean continuar = true;
         JOptionPane.showMessageDialog(null, "Binvenido", "Menu", 1);
         while (continuar == true) {
 
             OpcionConversor opcionConversor = new OpcionConversor();
-            Object[] opcionesConvertidor = new Object[opcionConversor.opcion.length];
-            Object[] opcionesMonedas = new Object[opcionConversor.monedas.length];
-            for (int i = 0; i < opcionConversor.opcion.length; i++) {
-                opcionesConvertidor[i] = opcionConversor.opcion[i];
-            }
-            for (int i = 0; i < opcionConversor.monedas.length; i++) {
-                opcionesMonedas[i] = opcionConversor.monedas[i];
-            }
+
+            Object[] opcionesConvertidor = opcionConversor.opcion;
+            Object[] opcionesMonedas = opcionConversor.monedas;
+            Object[] opcionesTiempo = opcionConversor.unidadestiempo;
+
             String opcion = (String) JOptionPane.showInputDialog(null, "Selecciona un conversor", "Elegir", 1, null,
                     opcionesConvertidor, opcionesConvertidor[0]);
             String valorString = JOptionPane.showInputDialog("Ingrese valor a convertir");
@@ -33,6 +31,16 @@ public class App {
                     int opcionMonedaElegida = opcionConversor.opcionMoneda(monedaElegida);
                     JOptionPane.showInternalMessageDialog(null, moneda.convertirMoneda(opcionMonedaElegida));
                     break;
+                case 2:
+                    String TiempoElegido = (String) JOptionPane.showInputDialog(null,
+                            "Elegir tiempo a converir los dias",
+                            "Elegir", 1, null,
+                            opcionesTiempo, opcionesTiempo[0]);
+                    Tiempo tiempo = new Tiempo(valor);
+                    int opcionTiempoElegido = opcionConversor.opcionTiempo(TiempoElegido);
+                    JOptionPane.showInternalMessageDialog(null, tiempo.convertirTiempo(opcionTiempoElegido));
+                    break;
+
                 default:
                     JOptionPane.showMessageDialog(null, "Opcion no valida");
                     break;
